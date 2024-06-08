@@ -40,10 +40,11 @@
         <div class="match-content">
           <div class="column">
             <div class="team team--home">
-              <div class="team-logo">
+              <div class="team-logo" routerLink="/Equipo/{{match?.homeTeam?.id}}" style="cursor: pointer;">
                 <img src="{{match?.homeTeam?.crest}}" />
+                
               </div>
-              <h2 class="team-name">{{match?.homeTeam?.name}}</h2>
+              <h2 class="team-name"  routerLink="/Equipo/{{match?.homeTeam?.id}}" style="cursor: pointer;">{{match?.homeTeam?.name}}</h2>
             </div>
           </div>
           <div class="column">
@@ -63,27 +64,15 @@
                 <span class="match-score-divider">:</span>
                 <span class="match-score-number">0</span>
               </div>
-              <!--<div class="match-time-lapsed">
-
-    </div>-->
-              <!--<div class="match-referee">
-      Referee: <strong>Joseph Hicks</strong>
-    </div>-->
-              <!--<div class="match-bet-options">
-      <button class="match-bet-option">1.48</button>
-      <button class="match-bet-option">4.98</button>
-      <button class="match-bet-option">8.24</button>
-    </div>-->
-            <button class="match-bet-place" (click)="openBetDialog(srNo)">Ingresa la Apuesta</button>
             
           </div>
           </div>
           <div class="column">
             <div class="team team--away">
-              <div class="team-logo">
+              <div class="team-logo" routerLink="/Equipo/{{match?.awayTeam?.id}}" style="cursor: pointer;" >
                 <img src="{{match?.awayTeam?.crest}}" />
               </div>
-              <h2 class="team-name">{{match?.awayTeam?.name}}</h2>
+              <h2 class="team-name" routerLink="/Equipo/{{match?.awayTeam?.id}}" style="cursor: pointer;">{{match?.awayTeam?.name}}</h2>
             </div>
           </div>
         </div>
@@ -98,52 +87,4 @@
 
 
 
-<!-- Modal HTML -->
-<div class="modal" [class.show]="showModal">
-  <div class="modal-content">
-    <span class="close" (click)="closeBetDialog()">&times;</span>
-    <h2>Ingresa tu Apuesta</h2>
-
-
-    <div class="match-header">
-      <div class="match-tournament"><img src="{{matchsApuesta.competition?.emblem}}" />{{matchsApuesta.competition?.name}}</div>
-    </div>
-
-    <div class="match-content">
-      <div class="column">
-        <div class="team team--home">
-          <div class="team-logo">
-            <img src="{{matchsApuesta.homeTeam?.crest}}" />
-          </div>
-          <h2 class="team-name">{{matchsApuesta.homeTeam?.name}}</h2>
-        </div>
-      </div>
-      <div class="column">
-        <div class="match-details">
-    
-          <div class="match-score" *ngIf="matchsApuesta.status != 'TIMED'" >
-            <span class="match-score-number match-score-number--leading">{{matchsApuesta.score?.fullTime?.home}}</span>
-            <span class="match-score-divider">:</span>
-            <span class="match-score-number">{{matchsApuesta.score?.fullTime?.away}}</span>
-          </div>
-
-          <div class="match-score" *ngIf="matchsApuesta.status === 'TIMED'" >
-            <input type="number" [(ngModel)]="currentApuesta.home" placeholder="0" />
-            <span class="match-score-divider"> : </span>
-            <input type="number" [(ngModel)]="currentApuesta.away" placeholder="0" />
-          </div>
-
-      </div>
-      </div>
-      <div class="column">
-        <div class="team team--away">
-          <div class="team-logo">
-            <img src="{{matchsApuesta.awayTeam?.crest}}" />
-          </div>
-          <h2 class="team-name">{{matchsApuesta.awayTeam?.name}}</h2>
-        </div>
-      </div>
-    </div>
-    <button class="btn-confirm"  (click)="confirmBet()">Confirmar</button>
-  </div>
 </div>
