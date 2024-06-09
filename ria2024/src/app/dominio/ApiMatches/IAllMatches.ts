@@ -1,9 +1,9 @@
-import { IfilterDomain } from "./IFilterDomain";
-import { IMatcheDomain } from "./IMatcheDomain";
-import { IResultSetDomain } from "./IResultSet";
+import { IfilterDomain } from './IFilterDomain';
+import { IMatchDomain } from './IMatchDomain';
+import { IResultSetDomain } from './IResultSet';
 
 export interface IAllMatchesDomain {
   filters: IfilterDomain;
   resultSet: IResultSetDomain;
-  matches: IMatcheDomain[];
+  matches: IMatchDomain[];
 }

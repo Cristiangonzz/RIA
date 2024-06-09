@@ -1,8 +1,7 @@
-
 export interface ICompetitionDomain {
-  id?: number | null;
-  name?: string | null;
-  code?: string | null;
-  type?: string | null;
-  emblem?: string | null;
+  id: number;
+  name?: string;
+  code?: string;
+  type?: string;
+  emblem?: string;
 }

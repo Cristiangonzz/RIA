@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import { PartidosModule } from './componentes/partidos/partidos.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
+import { EquipoModule } from './componentes/equipo/equipo.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    PartidosModule
+    PartidosModule,
+    EquipoModule
   ],
   providers: [
     provideAnimationsAsync()

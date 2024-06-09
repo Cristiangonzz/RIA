@@ -1,7 +1,6 @@
-
 export interface IAreaDomain {
-  id?: number | null;
-  name?: string | null;
-  code?: string | null;
-  flag?: string | null;
+  id: number;
+  name?: string;
+  code?: string;
+  flag?: string;
 }
