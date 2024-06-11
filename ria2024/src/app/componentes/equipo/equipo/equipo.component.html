@@ -1,21 +1,194 @@
+<div class="container">
+  <div class="main-body">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      </ol>
+    </nav>
 
-<div>
-    <h1>Este es un Equipo seleccionado</h1>
-{{
-    equipo | json
-}}
-    <div>
-        <h2>Nombre del Equipo</h2>
-        <h3>{{equipo?.name}}</h3>
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                [src]="equipo.crest"
+                alt="{{ equipo.name }} Crest"
+                width="150"
+              />
+              <div class="mt-3">
+                <h4>{{ equipo.name }}</h4>
+                <p class="text-secondary mb-1">{{ equipo.area.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <h3 style="text-align: center">Entrenador</h3>
+
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <p class="mb-0"><strong>Nombre:</strong></p>
+              <span> {{ equipo.coach.name }}</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <p class="mb-0"><strong>Nacionalidad:</strong></p>
+              <span> {{ equipo.coach.nationality }}</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <p class="mb-0"><strong>Inicio del contrato:</strong></p>
+              <span> {{ equipo.coach.contract?.start }}</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <p class="mb-0"><strong>Fin del contrato</strong></p>
+              <span> {{ equipo.coach.contract?.until }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">País</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ equipo.area.name }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">Colores del Club</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ equipo.clubColors }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">Estadio</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ equipo.venue }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">Fundado en</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ equipo.founded }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">Website</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <a [href]="equipo.website" target="_blank">{{
+                  equipo.website
+                }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gutters-sm">
+          <div class="card">
+            <h3 style="text-align: center">Jugadores</h3>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Posición</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Nacionalidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let jugador of equipo.squad">
+                    <td>{{ jugador.name }}</td>
+                    <td>{{ jugador.position }}</td>
+                    <td>{{ jugador.dateOfBirth }}</td>
+                    <td>{{ jugador.nationality }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div>
-        <h2>Coach</h2>
-    </div>
-
-    <div>
-        <h2>Coach</h2>
-    </div>
-
+  </div>
 </div>
-
+<!-- <div class="container">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title">{{ equipo.name }}</h1>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            [src]="equipo.crest"
+            alt="{{ equipo.name }} Crest"
+            class="img-fluid mb-3"
+          />
+          <p><strong>País:</strong> {{ equipo.area.name }}</p>
+          <p><strong>Colores del Club:</strong> {{ equipo.clubColors }}</p>
+          <p><strong>Estadio:</strong> {{ equipo.venue }}</p>
+          <p>
+            <strong>Página Web: </strong>
+            <a [href]="equipo.website" target="_blank">{{ equipo.website }}</a>
+          </p>
+          <p><strong>Fundado en:</strong> {{ equipo.founded }}</p>
+        </div>
+        <div class="col-md-6">
+          <h2>Entrenador</h2>
+          <p><strong>Nombre:</strong> {{ equipo.coach.name }}</p>
+          <p><strong>Nacionalidad:</strong> {{ equipo.coach.nationality }}</p>
+          <p>
+            <strong>Inicio del contrato:</strong>
+            {{ equipo.coach.contract?.start }}
+          </p>
+          <p>
+            <strong>Fin del contrato:</strong>
+            {{ equipo.coach.contract?.until }}
+          </p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <h2>Jugadores</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Posición</th>
+                  <th>Fecha de Nacimiento</th>
+                  <th>Nacionalidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let jugador of equipo.squad">
+                  <td>{{ jugador.name }}</td>
+                  <td>{{ jugador.position }}</td>
+                  <td>{{ jugador.dateOfBirth }}</td>
+                  <td>{{ jugador.nationality }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

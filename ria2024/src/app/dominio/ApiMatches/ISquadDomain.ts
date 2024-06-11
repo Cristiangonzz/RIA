@@ -1,4 +1,4 @@
-export interface ISesionDomain {
+export interface ISquadDomain {
   id: string;
   name?: string;
   position?: string;
@@ -6,6 +6,4 @@ export interface ISesionDomain {
   nationality?: string;
 }
 
-export interface IStaffDomain{
-    
-}
+export interface IStaffDomain {}

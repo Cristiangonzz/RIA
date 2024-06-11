@@ -1,9 +1,14 @@
+import { IAreaDomain } from './IAreaDomain';
+import { ICoachDomain } from './ICoachDomain';
 import { ICompetitionDomain } from './ICompetitionDomain';
-import { IStaffDomain } from './ISquadDomain';
+import { ISquadDomain, IStaffDomain } from './ISquadDomain';
 
 export interface ITeamDomain {
   id: number;
+  area: IAreaDomain;
+  squad: ISquadDomain[];
   name?: string;
+  coach: ICoachDomain;
   shortName?: string;
   tla?: string;
   crest?: string;

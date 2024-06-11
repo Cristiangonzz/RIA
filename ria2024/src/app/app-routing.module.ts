@@ -9,7 +9,6 @@ const routes: Routes = [
   },
   {
     path: 'Partidos',
-    //canActivate: [BackGuard],
     loadChildren: () =>
       import('./componentes/partidos/partidos.module').then(
         (m) => m.PartidosModule
@@ -17,7 +16,6 @@ const routes: Routes = [
   },
   {
     path: 'Equipo/:id',
-    //canActivate: [BackGuard],
     loadChildren: () =>
       import('./componentes/equipo/equipo.module').then((m) => m.EquipoModule),
   },

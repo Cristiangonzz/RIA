@@ -27,9 +27,26 @@ export class EquipoComponent implements OnInit {
       if (equipo != null) {
         this.equipo = equipo;
         console.log('Mi equipo:' + JSON.stringify(equipo, null, 2));
+        console.log('Mi equipo:', equipo);
       } else {
         console.error('Fallo la consulta a la api');
       }
     });
+  }
+
+  getGradientStyle(clubColors: string | undefined): string {
+    if (!clubColors) {
+      return '';
+    }
+
+    const colors = clubColors.split('/').map((color) => color.trim());
+    const colorCount = colors.length;
+
+    const colorStops = colors.map((color, index) => {
+      const position = (index / (colorCount - 1)) * 100;
+      return `${color} ${position}%`;
+    });
+
+    return `linear-gradient(to right, ${colorStops.join(', ')})`;
   }
 }

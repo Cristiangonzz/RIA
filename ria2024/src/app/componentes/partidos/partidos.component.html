@@ -1,90 +1,154 @@
-
-
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="partidos.component.css" rel="stylesheet" />
-</head>
-
-
-
-<div class="container">
-
-  <div class="header">
-    <h1>Partidos</h1>
-  <!-- 
-    <div class="filter">
-      <select name="filter" id="filter" [(ngModel)]="filter" (change)="filterMatches()">
-        <option value="TODOS">Todos</option>
-        <option value="EN_JUEGO">En Juego</option>
-        <option value="FINALIZADO">Finalizado</option>
-        <option value="PROXIMO">Próximo</option>
-    </select>
-    </div> -->
-    <div class="fecha">
-      <input type="date" [(ngModel)]="dateFrom" placeholder="Fecha desde" />
-      <input type="date" [(ngModel)]="dateTo" placeholder="Fecha hasta" />
-      <button (click)="partidosPorFechas()">Filtrar</button>
-    </div>
-  <div *ngIf="matches.matches.length > 0">
-
-    <h1>Partidos desde :{{matches.filters.dateFrom}} hasta {{matches.filters.dateTo}} </h1>
-    <div *ngFor="let match of matches.matches; let srNo  = index">
-
-
-      <!-- code here -->
-      <div class="match">
-        <div class="match-header">
-          <div class="match-tournament"><img src="{{match?.competition?.emblem}}" />{{match?.competition?.name}}</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partidos</title>
+    <link href="partidos.component.css" rel="stylesheet" />
+    <style>
+      .form-control {
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <div class="text-center">
+        <h1>Partidos</h1>
+        <div class="my-4 d-flex justify-content-center">
+          <input
+            type="date"
+            class="form-control mx-2"
+            [(ngModel)]="dateFrom"
+            placeholder="Fecha desde"
+          />
+          <input
+            type="date"
+            class="form-control mx-2"
+            [(ngModel)]="dateTo"
+            placeholder="Fecha hasta"
+          />
+          <button class="btn btn-primary mx-2" (click)="partidosPorFechas()">
+            Filtrar
+          </button>
         </div>
 
-        <div class="match-content">
-          <div class="column">
-            <div class="team team--home">
-              <div class="team-logo" routerLink="/Equipo/{{match?.homeTeam?.id}}" style="cursor: pointer;">
-                <img src="{{match?.homeTeam?.crest}}" />
-                
+        <div *ngIf="matches.matches.length > 0">
+          <h2>
+            Partidos desde: {{ matches.filters.dateFrom }} hasta
+            {{ matches.filters.dateTo }}
+          </h2>
+          <div
+            *ngFor="let match of matches.matches; let srNo = index"
+            class="my-4"
+          >
+            <div class="card">
+              <div
+                class="card-header d-flex justify-content-between align-items-center"
+              >
+                <div class="match-tournament d-flex align-items-center">
+                  <img
+                    src="{{ match?.competition?.emblem }}"
+                    class="img-fluid"
+                    style="width: 30px; height: 30px"
+                  />
+                  <span class="ml-4">{{ match?.competition?.name }}</span>
+                </div>
               </div>
-              <h2 class="team-name"  routerLink="/Equipo/{{match?.homeTeam?.id}}" style="cursor: pointer;">{{match?.homeTeam?.name}}</h2>
+              <div class="card-body">
+                <div class="row text-center">
+                  <div class="col-md-4">
+                    <div class="team team--home">
+                      <div
+                        class="team-logo mb-2"
+                        routerLink="/Equipo/{{ match?.homeTeam?.id }}"
+                        style="cursor: pointer"
+                      >
+                        <img
+                          src="{{ match?.homeTeam?.crest }}"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <h2
+                        class="team-name h5"
+                        routerLink="/Equipo/{{ match?.homeTeam?.id }}"
+                        style="cursor: pointer"
+                      >
+                        {{ match?.homeTeam?.name }}
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="match-details">
+                      <div class="match-date mb-0">
+                        <strong>{{
+                          match.utcDate | date : "YYYY-MM-dd h:mm a"
+                        }}</strong>
+                      </div>
+                      <div class="match-score" *ngIf="match?.status != 'TIMED'">
+                        <span
+                          class="match-score-number match-score-number--leading"
+                          >{{ match?.score?.fullTime?.home }}</span
+                        >
+                        <span class="match-score-divider mx-2">:</span>
+                        <span class="match-score-number">{{
+                          match?.score?.fullTime?.away
+                        }}</span>
+                      </div>
+                      <div
+                        class="match-score"
+                        *ngIf="match?.status === 'TIMED'"
+                      >
+                        <span
+                          class="match-score-number match-score-number--leading"
+                          >0</span
+                        >
+                        <span class="match-score-divider mx-2">:</span>
+                        <span class="match-score-number">0</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="team team--away">
+                      <div
+                        class="team-logo mb-0"
+                        [routerLink]="['/Equipo/', match?.awayTeam?.id]"
+                        style="cursor: pointer"
+                      >
+                        <img
+                          src="{{ match?.awayTeam?.crest }}"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <h2
+                        class="team-name h5"
+                        routerLink="/Equipo/{{ match?.awayTeam?.id }}"
+                        style="cursor: pointer"
+                      >
+                        {{ match?.awayTeam?.name }}
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="column">
-            <div class="match-details">
-              <div class="match-date">
-                12 Aug at <strong>19:00</strong>
-              </div>
-
-              <div class="match-score" *ngIf="match?.status != 'TIMED'" >
-                <span class="match-score-number match-score-number--leading">{{match?.score?.fullTime?.home}}</span>
-                <span class="match-score-divider">:</span>
-                <span class="match-score-number">{{match?.score?.fullTime?.away}}</span>
-              </div>
-
-              <div class="match-score"*ngIf="match?.status === 'TIMED'">
-                <span class="match-score-number match-score-number--leading">0</span>
-                <span class="match-score-divider">:</span>
-                <span class="match-score-number">0</span>
-              </div>
-            
-          </div>
-          </div>
-          <div class="column">
-            <div class="team team--away">
-              <div class="team-logo" routerLink="/Equipo/{{match?.awayTeam?.id}}" style="cursor: pointer;" >
-                <img src="{{match?.awayTeam?.crest}}" />
-              </div>
-              <h2 class="team-name" routerLink="/Equipo/{{match?.awayTeam?.id}}" style="cursor: pointer;">{{match?.awayTeam?.name}}</h2>
-            </div>
-          </div>
+        </div>
+        <div *ngIf="matches.matches.length == 0">
+          <h2>No hay partidos disponibles para este periodo de fechas</h2>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="matches.matches.length == 0">
-    <h1>No hay peridos disponible para esta fecha Partidos</h1>
-  </div>
 
-</div>
-
-
-
-</div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-qNhE6QFDEID7fVp7CSPO9DQNhS/zC26EIHGCpBW4d2phojxVSF1aC/rxrN1L6Twt"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
