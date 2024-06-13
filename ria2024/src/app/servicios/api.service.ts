@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { IAllMatchesDomain } from '../dominio/ApiMatches/IAllMatches';
 import { Observable } from 'rxjs';
 import { ITeamDomain } from '../dominio/ApiMatches/ITeamDomain';
+import { IMatchDomain } from '../dominio/ApiMatches/IMatchDomain';
+import { ICoachDomain } from '../dominio/ApiMatches/ICoachDomain';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +45,16 @@ export class ApiService {
       'X-Auth-Token': this.apiToken,
     });
     return this.http.get<ITeamDomain>(this.apiUrlEquipo + '/' + id, {
+      headers,
+    });
+  }
+
+  public ObtenerPartido(id: number): Observable<IMatchDomain> {
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'X-Auth-Token': this.apiToken,
+    });
+    return this.http.get<IMatchDomain>(this.apiUrl + '/' + id, {
       headers,
     });
   }

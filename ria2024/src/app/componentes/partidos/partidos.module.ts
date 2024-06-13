@@ -4,17 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { PartidosComponent } from './partidos.component';
 import { RoutingPartidosModule } from './routing-partidos.module';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { PartidoDetailComponent } from './partido-detail/partido-detail.component';
 
 @NgModule({
-  declarations: [PartidosComponent],
-  imports: [
-    CommonModule,
-    RoutingPartidosModule,
-    FormsModule,
-    MatButtonModule
-  ],
-  exports: [PartidosComponent]
+  declarations: [PartidosComponent, PartidoDetailComponent],
+  imports: [CommonModule, RoutingPartidosModule, FormsModule, MatButtonModule],
+  exports: [PartidosComponent, PartidoDetailComponent],
 })
-export class PartidosModule { }
+export class PartidosModule {}

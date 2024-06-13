@@ -1,7 +1,8 @@
 import { IAreaDomain } from './IAreaDomain';
-import { ICoachDomain } from './ICoachDomain';
+import { ICoachDomain, IContractDomain } from './ICoachDomain';
 import { ICompetitionDomain } from './ICompetitionDomain';
 import { ISquadDomain, IStaffDomain } from './ISquadDomain';
+import { IStatisticsDomain } from './IStatisticsDomain';
 
 export interface ITeamDomain {
   id: number;
@@ -20,4 +21,5 @@ export interface ITeamDomain {
   runningCompetitions?: ICompetitionDomain[];
   staff?: IStaffDomain;
   lastUpdated?: string;
+  contract?: IContractDomain;
 }

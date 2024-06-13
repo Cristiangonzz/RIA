@@ -1,0 +1,113 @@
+<main class="container">
+  <div class="card mt-5">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="match-tournament d-flex align-items-center">
+        <img
+          src="{{ match?.competition?.emblem }}"
+          class="img-fluid"
+          style="width: 30px; height: 30px"
+        />
+        <span class="ml-4">{{ match?.competition?.name }}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="team team--home">
+            <div
+              class="team-logo mb-2"
+              routerLink="/Equipo/{{ match?.homeTeam?.id }}"
+              style="cursor: pointer"
+            >
+              <img src="{{ match?.homeTeam?.crest }}" class="img-fluid" />
+            </div>
+            <h2
+              class="team-name h5"
+              routerLink="/Equipo/{{ match?.homeTeam?.id }}"
+              style="cursor: pointer"
+            >
+              {{ match?.homeTeam?.name }}
+            </h2>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="match-details">
+            <div class="match-date mb-0">
+              <strong>{{ match.utcDate | date : "YYYY-MM-dd h:mm a" }}</strong>
+            </div>
+            <div class="match-score" *ngIf="match?.status != 'TIMED'">
+              <span class="match-score-number match-score-number--leading">{{
+                match?.score?.fullTime?.home
+              }}</span>
+              <span class="match-score-divider mx-2">:</span>
+              <span class="match-score-number">{{
+                match?.score?.fullTime?.away
+              }}</span>
+            </div>
+            <div class="match-score" *ngIf="match?.status === 'TIMED'">
+              <span class="match-score-number match-score-number--leading"
+                >0</span
+              >
+              <span class="match-score-divider mx-2">:</span>
+              <span class="match-score-number">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="team team--away">
+            <div
+              class="team-logo mb-0"
+              [routerLink]="['/Equipo/', match?.awayTeam?.id]"
+              style="cursor: pointer"
+            >
+              <img src="{{ match?.awayTeam?.crest }}" class="img-fluid" />
+            </div>
+            <h2
+              class="team-name h5"
+              routerLink="/Equipo/{{ match?.awayTeam?.id }}"
+              style="cursor: pointer"
+            >
+              {{ match?.awayTeam?.name }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección para la información de la temporada -->
+  <div class="card mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="match-tournament d-flex align-items-center">
+        <img
+          src="{{ match?.competition?.emblem }}"
+          class="img-fluid"
+          style="width: 30px; height: 30px"
+        />
+        <span class="ml-4">Detalles de la temporada</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Inicio:</strong>
+        {{ match?.season?.startDate | date : "yyyy-MM-dd" }}
+      </p>
+      <p>
+        <strong>Fin:</strong> {{ match?.season?.endDate | date : "yyyy-MM-dd" }}
+      </p>
+      <div *ngIf="match?.season?.winner">
+        <h4><strong>Ganador:</strong></h4>
+        <div class="d-flex align-items-center">
+          <img
+            src="{{ match?.season?.winner?.crest }}"
+            class="img-fluid"
+            style="width: 30px; height: 30px; margin-right: 10px"
+            alt="{{ match?.season?.winner?.name }}"
+          />
+          <span>{{ match?.season?.winner?.name }}</span>
+        </div>
+        <p><strong>Venue:</strong> {{ match?.season?.winner?.venue }}</p>
+      </div>
+    </div>
+  </div>
+</main>

@@ -3,7 +3,7 @@ import { ICompetitionDomain } from './ICompetitionDomain';
 import { IOddsDomain } from './IOddsDomain';
 import { IRefereesDomain } from './IRefereesDomain';
 import { IScoreDomain } from './IScoreDomain';
-import { ISesionDomain } from './ISesionDomain';
+import { ISeasonDomain } from './ISeasonDomain';
 import { ITeamDomain } from './ITeamDomain';
 
 export interface IMatchDomain {
@@ -16,7 +16,7 @@ export interface IMatchDomain {
   lastUpdated?: string;
   area: IAreaDomain;
   competition: ICompetitionDomain;
-  season: ISesionDomain;
+  season: ISeasonDomain;
   homeTeam: ITeamDomain;
   awayTeam: ITeamDomain;
   score: IScoreDomain;

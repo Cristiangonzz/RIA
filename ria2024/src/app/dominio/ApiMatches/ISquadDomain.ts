@@ -4,6 +4,8 @@ export interface ISquadDomain {
   position?: string;
   dateOfBirth?: string;
   nationality?: string;
+  shirtNumber?: number;
+  section?: string;
 }
 
 export interface IStaffDomain {}
