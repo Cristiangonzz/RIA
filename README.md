@@ -204,6 +204,7 @@ npx sonar-scanner
 #### ESLint
 
 ESLint es una herramienta de análisis estático para encontrar y corregir problemas en el código JavaScript, asegurando la adherencia a un estilo de código consistente.
+La configuracion de ESLint se encuentra en el archivo: .eslintrc.json
 
 Inicialización:
 
@@ -220,6 +221,9 @@ npm run lint
 #### Prettier
 
 Prettier es un formateador de código que asegura un estilo consistente mediante la reimpresión de tu código conforme a reglas establecidas.
+La configuracion de Prettier se encuentra en el archivo: .prettierrc.json
+
+Ejecución:
 
 ```bash
 npm run prettier
