@@ -105,6 +105,7 @@ El proyecto Angular está organizado en diferentes módulos y componentes que ma
 ### Mock ups y Mapa de navegaciòn
 
 TODO
+![Mapa de navegación](https://github.com/Cristiangonzz/RIA/blob/main/images/navegacion.jpg)
 
 ## API Utilizada
 
