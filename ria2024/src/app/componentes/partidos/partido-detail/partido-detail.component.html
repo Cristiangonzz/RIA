@@ -73,6 +73,44 @@
         </div>
       </div>
     </div>
+    <div
+      class="card-footer"
+      [ngClass]="{
+        'status-finished': match?.status === 'FINISHED',
+        'status-scheduled': match?.status === 'SCHEDULED',
+        'status-live': match?.status === 'LIVE' || match?.status === 'IN_PLAY',
+        'status-paused': match?.status === 'PAUSED',
+        'status-postponed': match?.status === 'POSTPONED',
+        'status-suspended': match?.status === 'SUSPENDED',
+        'status-cancelled': match?.status === 'CANCELLED'
+      }"
+    >
+      <div class="text-center">
+        <span *ngIf="match?.status === 'FINISHED'" style="float: left"
+          >Finalizado</span
+        >
+        <span *ngIf="match?.status === 'SCHEDULED'" style="float: left"
+          >Programado</span
+        >
+        <span
+          *ngIf="match?.status === 'LIVE' || match?.status === 'IN_PLAY'"
+          style="float: left"
+          >En Vivo</span
+        >
+        <span *ngIf="match?.status === 'PAUSED'" style="float: left"
+          >En Pausa</span
+        >
+        <span *ngIf="match?.status === 'POSTPONED'" style="float: left"
+          >Aplazado</span
+        >
+        <span *ngIf="match?.status === 'SUSPENDED'" style="float: left"
+          >Suspendido</span
+        >
+        <span *ngIf="match?.status === 'CANCELLED'" style="float: left"
+          >Cancelado</span
+        >
+      </div>
+    </div>
   </div>
 
   <!-- Sección para la información de la temporada -->

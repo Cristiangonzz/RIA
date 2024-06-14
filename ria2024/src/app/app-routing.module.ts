@@ -8,6 +8,13 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'Competiciones',
+    loadChildren: () =>
+      import('./componentes/competiciones/competiciones.module').then(
+        (m) => m.CompeticionesModule
+      ),
+  },
+  {
     path: 'Partidos',
     loadChildren: () =>
       import('./componentes/partidos/partidos.module').then(

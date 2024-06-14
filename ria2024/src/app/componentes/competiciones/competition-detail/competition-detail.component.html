@@ -1,0 +1,102 @@
+<div class="container mt-5">
+  <div *ngIf="competition">
+    <div class="card mb-3">
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
+        <div class="match-tournament d-flex align-items-center">
+          <img
+            src="{{ competition?.emblem }}"
+            class="img-fluid"
+            style="width: 30px; height: 30px"
+          />
+          <span class="ml-4">{{ competition.name }}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>País:</strong> {{ competition.area?.name }}</p>
+            <p>
+              <strong>Inicio de la temporada actual:</strong>
+              {{ competition.currentSeason?.startDate }}
+            </p>
+            <p>
+              <strong>Fin de la temporada actual:</strong>
+              {{ competition.currentSeason?.endDate }}
+            </p>
+            <div>
+              <strong>Equipo Ganador:</strong>
+              <div
+                *ngIf="competition.currentSeason?.winner"
+                class="d-flex align-items-center"
+              >
+                <img
+                  src="{{ competition.currentSeason?.winner?.crest }}"
+                  class="img-fluid"
+                  style="width: 30px; height: 30px; margin-right: 10px"
+                  alt="{{ competition.currentSeason?.winner?.name }}"
+                />
+                <span>{{ competition.currentSeason?.winner?.name }}</span>
+              </div>
+              <span *ngIf="!competition.currentSeason?.winner">
+                No definido.
+              </span>
+            </div>
+            <br />
+            <a
+              class="btn btn-primary"
+              routerLink="/Competiciones/teams/{{ competition?.id }}"
+            >
+              Ver Equipos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4><strong>Temporadas Anteriores:</strong></h4>
+      </div>
+    </div>
+
+    <div class="list-group">
+      <div *ngFor="let season of competition.seasons">
+        <div class="card mb-2">
+          <h5 class="card-header mb-0">
+            Temporada {{ season.startDate | date : "YYYY" }}
+          </h5>
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Inicio: </strong> {{ season.startDate }}<br />
+              <strong>Fin: </strong> {{ season.endDate }}<br />
+              <strong>Matchday Actual: </strong> {{ season.currentMatchday
+              }}<br />
+              <strong>Ganador: </strong>
+              <span *ngIf="season.winner">
+                <img
+                  src="{{ season.winner?.crest }}"
+                  class="img-fluid"
+                  style="width: 20px; height: 20px; margin-right: 5px"
+                  alt="{{ season.winner?.name }}"
+                />
+                {{ season.winner?.name }}
+              </span>
+              <span *ngIf="!season.winner">No definido</span>
+            </p>
+            <a
+              class="btn btn-primary"
+              routerLink="/Competiciones/matches/{{ competition?.id }}/{{
+                getYearFromDate(season.startDate!)
+              }}"
+            >
+              Ver Partidos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

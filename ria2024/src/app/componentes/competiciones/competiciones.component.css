@@ -1,0 +1,9 @@
+.match-tournament {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  img {
+    width: 20px;
+    margin-right: 12px;
+  }
+}

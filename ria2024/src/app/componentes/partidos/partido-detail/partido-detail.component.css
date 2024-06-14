@@ -231,3 +231,38 @@
 .match-bet-place:hover {
   background-color: #0056b3;
 }
+
+.status-finished {
+  background-color: green;
+  color: white;
+}
+
+.status-scheduled {
+  background-color: blue;
+  color: white;
+}
+
+.status-live {
+  background-color: red;
+  color: white;
+}
+
+.status-paused {
+  background-color: orange;
+  color: black;
+}
+
+.status-postponed {
+  background-color: purple;
+  color: white;
+}
+
+.status-suspended {
+  background-color: darkred;
+  color: white;
+}
+
+.status-cancelled {
+  background-color: grey;
+  color: white;
+}

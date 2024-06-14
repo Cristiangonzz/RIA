@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Partidos</title>
-    <link href="partidos.component.css" rel="stylesheet" />
+    <link href="competition-matches.component.css" rel="stylesheet" />
     <style>
       .form-control {
         max-width: 300px;
@@ -14,29 +14,11 @@
   <body>
     <div class="container my-5">
       <div class="text-center">
-        <h1>Partidos</h1>
-        <div class="my-4 d-flex justify-content-center">
-          <input
-            type="date"
-            class="form-control mx-2"
-            [(ngModel)]="dateFrom"
-            placeholder="Fecha desde"
-          />
-          <input
-            type="date"
-            class="form-control mx-2"
-            [(ngModel)]="dateTo"
-            placeholder="Fecha hasta"
-          />
-          <button class="btn btn-primary mx-2" (click)="partidosPorFechas()">
-            Filtrar
-          </button>
-        </div>
-
+        <h1>Partidos {{ matches?.competition?.name }}</h1>
         <div *ngIf="matches.matches.length > 0">
           <h2>
-            Partidos desde: {{ matches.filters.dateFrom }} hasta
-            {{ matches.filters.dateTo }}
+            Partidos desde: {{ matches.resultSet.first }} hasta
+            {{ matches.resultSet.last }}
           </h2>
           <div
             *ngFor="let match of matches.matches; let srNo = index"

@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>
+        <strong
+          >Equipos de la Competencia: {{ teams?.competition?.name }}</strong
+        >
+      </h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Escudo</th>
+            <th>Estadio</th>
+            <th>Acciones</th>
+            <!-- Nueva columna para el enlace -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams.teams">
+            <td>{{ team.name }}</td>
+            <td>
+              <img
+                *ngIf="team.crest"
+                [src]="team.crest"
+                alt="Escudo de {{ team.name }}"
+                height="50"
+              />
+            </td>
+            <td>{{ team.venue }}</td>
+            <td>
+              <a [routerLink]="'/Equipo/' + team.id" class="btn btn-primary"
+                >Ver detalle</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

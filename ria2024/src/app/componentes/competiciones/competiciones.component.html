@@ -1,0 +1,39 @@
+<div class="container">
+  <div *ngIf="competitions.competitions.length > 0">
+    <div
+      *ngFor="let competition of competitions.competitions"
+      class="card my-3"
+    >
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
+        <div class="match-tournament d-flex align-items-center">
+          <img
+            src="{{ competition?.emblem }}"
+            class="img-fluid"
+            style="width: 30px; height: 30px"
+          />
+          <span class="ml-4">{{ competition.name }}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <a
+          class="btn btn-primary"
+          routerLink="/Competiciones/detail/{{ competition?.id }}"
+        >
+          Ver Detalle
+        </a>
+        &nbsp;
+        <a
+          class="btn btn-primary"
+          routerLink="/Competiciones/teams/{{ competition?.id }}"
+        >
+          Ver Equipos
+        </a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="competitions.competitions.length === 0">
+    <p>No hay competiciones disponibles.</p>
+  </div>
+</div>

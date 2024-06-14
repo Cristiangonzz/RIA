@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { PartidosModule } from './componentes/partidos/partidos.module';
 import { EquipoModule } from './componentes/equipo/equipo.module';
+import { CompeticionesModule } from './componentes/competiciones/competiciones.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     PartidosModule,
     EquipoModule,
+    CompeticionesModule,
     NavbarComponent,
   ],
   providers: [provideAnimationsAsync()],
