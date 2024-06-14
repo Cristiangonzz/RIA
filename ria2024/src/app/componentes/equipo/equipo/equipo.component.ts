@@ -39,7 +39,7 @@ export class EquipoComponent implements OnInit {
       return '';
     }
 
-    const colors = clubColors.split('/').map((color) => color.trim());
+    const colors = clubColors.split('/').map(color => color.trim());
     const colorCount = colors.length;
 
     const colorStops = colors.map((color, index) => {

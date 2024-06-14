@@ -4,6 +4,3 @@ export interface IRefereesDomain {
   type?: string;
   nationality?: string;
 }
-
-
-

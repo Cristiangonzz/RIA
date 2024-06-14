@@ -106,7 +106,7 @@ El proyecto Angular está organizado en diferentes módulos y componentes que ma
 
 - **Mockup**: <a href="https://docs.google.com/presentation/d/1e4L3DaeFMoLBliqJ5mjC-JxfS3-iIFnJmnQzkET2GTQ/edit?usp=drive_link">enlace</a>
 
- - **Mapa de navegación**
+- **Mapa de navegación**
 
 ![Mapa de navegación](https://github.com/Cristiangonzz/RIA/blob/main/images/navegacion.jpg)
 
@@ -168,4 +168,59 @@ La aplicación hace uso de la API de Football Data para obtener datos actualizad
 
 ## Configuración e Instalación
 
-TODO
+Ejecucion Local:
+
+Corre `ng serve` para generar un dev server.
+Navega a `http://localhost:4200/`.
+
+## Análisis de vulnerabilidades
+
+#### SonarQube
+
+SonarQube es una plataforma de código abierto para la inspección continua de la calidad del código y la seguridad, para realizar revisiones automáticas con el análisis estático del código para detectar errores de programación, problemas de estilo, y posibles vulnerabilidades.
+
+##### Ejecucion
+
+Instalación Local:
+
+- Descarga e instala SonarQube desde SonarQube Download.
+- Ejecuta SonarQube en tu máquina local.
+- Configura el archivo sonar-project.properties en la raíz del proyecto:
+
+  ```properties
+  sonar.projectKey=your_project_key
+  sonar.host.url=http://localhost:9000
+  sonar.login=your_sonar_token
+  ```
+
+Ejecución:
+
+```bash
+npx sonar-scanner
+```
+
+## Análisis estético de código.
+
+#### ESLint
+
+ESLint es una herramienta de análisis estático para encontrar y corregir problemas en el código JavaScript, asegurando la adherencia a un estilo de código consistente.
+
+Inicialización:
+
+```bash
+npx eslint --init
+```
+
+Ejecución:
+
+```bash
+npm run lint
+```
+
+#### Prettier
+
+Prettier es un formateador de código que asegura un estilo consistente mediante la reimpresión de tu código conforme a reglas establecidas.
+
+```bash
+npm run prettier
+```

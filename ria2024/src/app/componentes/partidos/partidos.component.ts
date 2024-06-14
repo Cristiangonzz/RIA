@@ -76,7 +76,7 @@ export class PartidosComponent implements OnInit {
           console.log('Fallo la consulta a la api');
         }
       },
-      error: (error) => {
+      error: error => {
         console.error(error);
       },
     });

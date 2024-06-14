@@ -5,4 +5,3 @@ export interface IResultSetDomain {
   last?: string;
   played?: number;
 }
-

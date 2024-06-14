@@ -11,20 +11,20 @@ const routes: Routes = [
     path: 'Competiciones',
     loadChildren: () =>
       import('./componentes/competiciones/competiciones.module').then(
-        (m) => m.CompeticionesModule
+        m => m.CompeticionesModule
       ),
   },
   {
     path: 'Partidos',
     loadChildren: () =>
       import('./componentes/partidos/partidos.module').then(
-        (m) => m.PartidosModule
+        m => m.PartidosModule
       ),
   },
   {
     path: 'Equipo/:id',
     loadChildren: () =>
-      import('./componentes/equipo/equipo.module').then((m) => m.EquipoModule),
+      import('./componentes/equipo/equipo.module').then(m => m.EquipoModule),
   },
   {
     path: '**',

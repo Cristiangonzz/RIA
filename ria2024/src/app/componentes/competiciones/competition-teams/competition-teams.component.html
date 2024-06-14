@@ -6,7 +6,7 @@
           >Equipos de la Competencia: {{ teams?.competition?.name }}</strong
         >
       </h4>
-      <table class="table table-striped">
+      <table class="table table-striped" aria-describedby="teams table">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -24,8 +24,7 @@
                 *ngIf="team.crest"
                 [src]="team.crest"
                 alt="Escudo de {{ team.name }}"
-                height="50"
-              />
+                height="50" />
             </td>
             <td>{{ team.venue }}</td>
             <td>

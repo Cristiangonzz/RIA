@@ -5,7 +5,7 @@
   gap: 10px;
 }
 
-.fecha input[type="date"] {
+.fecha input[type='date'] {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -30,7 +30,9 @@
   flex-direction: column;
   min-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 0 2px 0 rgba(#303030, 0.1), 0 4px 4px 0 rgba(#303030, 0.1);
+  box-shadow:
+    0 0 2px 0 rgba(#303030, 0.1),
+    0 4px 4px 0 rgba(#303030, 0.1);
 }
 
 .match-header {
@@ -51,7 +53,7 @@
   line-height: 1;
   margin-right: auto;
   &:before {
-    content: "";
+    content: '';
     display: block;
     width: 6px;
     height: 6px;
@@ -112,7 +114,8 @@
   justify-content: center;
   border-radius: 50%;
   background-color: var(--color-bg-primary);
-  box-shadow: 0 4px 4px 0 rgba(#303030, 0.15),
+  box-shadow:
+    0 4px 4px 0 rgba(#303030, 0.15),
     0 0 0 15px var(--color-bg-secondary);
   img {
     width: 50px;
@@ -173,35 +176,6 @@
   margin-top: 12px;
 }
 
-.match-bet-options {
-  display: flex;
-  margin-top: 8px;
-  padding-bottom: 12px;
-}
-
-.match-bet-option {
-  margin-left: 4px;
-  margin-right: 4px;
-  border: 1px solid var(--color-text-icon);
-  background-color: #f9f9f9;
-  border-radius: 2px;
-  color: var(--color-text-secondary);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px 8px;
-}
-
-.match-bet-place {
-  bottom: -16px;
-  border: 0;
-  background-color: var(--color-theme-primary);
-  border-radius: 6px;
-  padding: 10px 48px;
-  color: rgba(#fff, 0.9);
-  font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(#303030, 0.25);
-}
-
 .user-prediction {
   display: flex;
   align-items: center;
@@ -215,21 +189,6 @@
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-.match-bet-place {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.match-bet-place:hover {
-  background-color: #0056b3;
 }
 
 .status-finished {
