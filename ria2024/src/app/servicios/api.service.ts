@@ -4,7 +4,6 @@ import { IAllMatchesDomain } from '../dominio/ApiMatches/IAllMatches';
 import { Observable } from 'rxjs';
 import { ITeamDomain } from '../dominio/ApiMatches/ITeamDomain';
 import { IMatchDomain } from '../dominio/ApiMatches/IMatchDomain';
-import { ICoachDomain } from '../dominio/ApiMatches/ICoachDomain';
 import { IAllCompetitionsDomain } from '../dominio/ApiMatches/IAllCompetitionsDomain';
 import { ICompetitionDomain } from '../dominio/ApiMatches/ICompetitionDomain';
 import { IAllCompetitionTeamsDomain } from '../dominio/ApiMatches/IAllCompetitionTeamsDomain';

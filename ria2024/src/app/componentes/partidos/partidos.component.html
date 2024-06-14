@@ -49,6 +49,7 @@
                 <div class="match-tournament d-flex align-items-center">
                   <img
                     src="{{ match?.competition?.emblem }}"
+                    alt="{{ match?.competition?.name }}"
                     class="img-fluid"
                     style="width: 30px; height: 30px"
                   />
@@ -66,6 +67,7 @@
                       >
                         <img
                           src="{{ match?.homeTeam?.crest }}"
+                          alt="{{ match?.homeTeam?.name }}"
                           class="img-fluid"
                         />
                       </div>
@@ -85,7 +87,10 @@
                           match.utcDate | date : "YYYY-MM-dd h:mm a"
                         }}</strong>
                       </div>
-                      <div class="match-score" *ngIf="match?.status != 'TIMED'">
+                      <div
+                        class="match-score"
+                        *ngIf="match?.status !== 'TIMED'"
+                      >
                         <span
                           class="match-score-number match-score-number--leading"
                           >{{ match?.score?.fullTime?.home }}</span
@@ -123,6 +128,7 @@
                       >
                         <img
                           src="{{ match?.awayTeam?.crest }}"
+                          alt="{{ match?.awayTeam?.name }}"
                           class="img-fluid"
                         />
                       </div>
@@ -187,7 +193,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="matches.matches.length == 0">
+        <div *ngIf="matches.matches.length === 0">
           <h2>No hay partidos disponibles para este periodo de fechas</h2>
         </div>
       </div>

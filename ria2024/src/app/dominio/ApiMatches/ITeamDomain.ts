@@ -2,7 +2,6 @@ import { IAreaDomain } from './IAreaDomain';
 import { ICoachDomain, IContractDomain } from './ICoachDomain';
 import { ICompetitionDomain } from './ICompetitionDomain';
 import { ISquadDomain, IStaffDomain } from './ISquadDomain';
-import { IStatisticsDomain } from './IStatisticsDomain';
 
 export interface ITeamDomain {
   id: number;

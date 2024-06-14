@@ -4,6 +4,7 @@
       <div class="match-tournament d-flex align-items-center">
         <img
           src="{{ match?.competition?.emblem }}"
+          alt="{{ match?.competition?.name }}"
           class="img-fluid"
           style="width: 30px; height: 30px"
         />
@@ -19,7 +20,11 @@
               routerLink="/Equipo/{{ match?.homeTeam?.id }}"
               style="cursor: pointer"
             >
-              <img src="{{ match?.homeTeam?.crest }}" class="img-fluid" />
+              <img
+                src="{{ match?.homeTeam?.crest }}"
+                class="img-fluid"
+                alt="{{ match?.homeTeam?.name }}"
+              />
             </div>
             <h2
               class="team-name h5"
@@ -35,7 +40,7 @@
             <div class="match-date mb-0">
               <strong>{{ match.utcDate | date : "YYYY-MM-dd h:mm a" }}</strong>
             </div>
-            <div class="match-score" *ngIf="match?.status != 'TIMED'">
+            <div class="match-score" *ngIf="match?.status !== 'TIMED'">
               <span class="match-score-number match-score-number--leading">{{
                 match?.score?.fullTime?.home
               }}</span>
@@ -60,7 +65,11 @@
               [routerLink]="['/Equipo/', match?.awayTeam?.id]"
               style="cursor: pointer"
             >
-              <img src="{{ match?.awayTeam?.crest }}" class="img-fluid" />
+              <img
+                src="{{ match?.awayTeam?.crest }}"
+                alt="{{ match?.awayTeam?.name }}"
+                class="img-fluid"
+              />
             </div>
             <h2
               class="team-name h5"
@@ -119,6 +128,7 @@
       <div class="match-tournament d-flex align-items-center">
         <img
           src="{{ match?.competition?.emblem }}"
+          alt="{{ match?.competition?.name }}"
           class="img-fluid"
           style="width: 30px; height: 30px"
         />
