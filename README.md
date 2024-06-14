@@ -104,9 +104,7 @@ El proyecto Angular está organizado en diferentes módulos y componentes que ma
 
 ### Mock ups y Mapa de navegaciòn
 
-- **Mockup**
-- 
- <a href="https://docs.google.com/presentation/d/1e4L3DaeFMoLBliqJ5mjC-JxfS3-iIFnJmnQzkET2GTQ/edit?usp=drive_link">Mockup</a>
+ <a href="https://docs.google.com/presentation/d/1e4L3DaeFMoLBliqJ5mjC-JxfS3-iIFnJmnQzkET2GTQ/edit?usp=drive_link">*** MOCKUP ***</a>
 
  - **Mapa de navegación**
 
