@@ -8,6 +8,5 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [RouterLink, RouterOutlet, FormsModule, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {}
